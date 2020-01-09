@@ -1,0 +1,13 @@
+.ContactList {
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row .space{
+  padding: 0 3rem 1rem;
+  width: 4rem;
+}
