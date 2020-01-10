@@ -1,13 +1,13 @@
 .ContactList {
 }
 
-.row {
+.ContactList  .row{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.row .space{
+.ContactList  .row > .space{
   padding: 0 3rem 1rem;
   width: 4rem;
 }
