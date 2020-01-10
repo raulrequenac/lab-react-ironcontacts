@@ -26,6 +26,26 @@ class ContactList extends Component {
     }
   }
 
+  onClickSortByName() {
+    this.setState({
+      contacts: this.state.contacts.sort((contactA, contactB) => {
+        if (contactA.name < contactB.name) {
+          return -1
+        } else if (contactA.name > contactB.name){
+          return 1
+        } else {
+          return 0
+        }
+      })
+    })
+  }
+
+  onClickSortByPopularity() {
+    this.setState({
+      contacts: this.state.contacts.sort((contactA, contactB) => contactB.popularity - contactA.popularity)
+    })
+  }
+
   render() {
     const contactList = this.state.contacts.map(contact => (
       <div>
@@ -37,7 +57,11 @@ class ContactList extends Component {
       <div className="ContactList">
         {contactList.length === 0 ? 'Loading...' : (
           <div>
-            <button onClick={() => this.onClickRandomContact()}>Add Random Contacts</button>
+            <div className="row">
+            <button className="space" onClick={() => this.onClickRandomContact()}>Add Random Contacts</button>
+            <button className="space" onClick={() => this.onClickSortByName()}>Sort by name</button>
+            <button className="space" onClick={() => this.onClickSortByPopularity()}>Sort by popularity</button>
+            </div>
             <div className="row">
               <h3 className="space">Picture</h3>
               <h3 className="space">Name</h3>
