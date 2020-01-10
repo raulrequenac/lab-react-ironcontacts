@@ -46,10 +46,19 @@ class ContactList extends Component {
     })
   }
 
+  onClickDeleteContact(contact) {
+    this.setState({
+      contacts: this.state.contacts.filter(c => c.name !== contact.name)
+    })
+  }
+
   render() {
     const contactList = this.state.contacts.map(contact => (
       <div>
-        <Contact {...contact}/>
+        <Contact 
+          {...contact}
+          onClickDelete={() => this.onClickDeleteContact(contact)}
+        />
       </div>
     ))
 
@@ -66,6 +75,7 @@ class ContactList extends Component {
               <h3 className="space">Picture</h3>
               <h3 className="space">Name</h3>
               <h3 className="space">Popularity</h3>
+              <h3 className="space">Action</h3>
             </div>
             {contactList}
           </div>
